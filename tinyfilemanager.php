@@ -4,10 +4,18 @@ $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":
 
 /* ----------------------------------------------- */
 
-$HRM_CONFIG = [
+const HRM_CONFIG = [
+    "cdn_domain" => "http://n.hirmercdn.de",
 
-    "cdn_domain" => "http://n.hirmercdn.de"
+    "content_paths" => [
+        "/var/projects/tinyfilemanager/test/hgg/content",
+        "/var/projects/tinyfilemanager/test/hrm/content",
+        "/var/projects/tinyfilemanager/test/eck/content"
+    ],
 
+    "forbidden_to_modify" => [
+// todo!!
+    ]
 ];
 
 /* ----------------------------------------------- */
@@ -1968,6 +1976,14 @@ $num_files = count($files);
 $num_folders = count($folders);
 $all_files_size = 0;
 $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white";
+
+// fjw --------------------
+
+$showCDN = isInsideContentFolder($path);
+
+
+// ------------------------
+
 ?>
 <form action="" method="post" class="pt-3">
     <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
@@ -1989,7 +2005,9 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                 <?php if (!FM_IS_WIN && !$hide_Cols): ?>
                     <th><?php echo lng('Perms') ?></th>
                     <th><?php echo lng('Owner') ?></th><?php endif; ?>
-                <th>CDN</th>
+
+                <th><?php if ($showCDN): ?>CDN<?php endif; ?></th>
+
                 <th><?php echo lng('Actions') ?></th>
             </tr>
             </thead>
@@ -2125,7 +2143,18 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
 
                     <? /* ------------------------ fjw */ ?>
 
-                    <td><?php echo($path . "/" . $f); ?></td>
+                    <td><?php
+                        if($showCDN) {
+                            $cdnpath = pathToCDN($path . '/' . $f);
+                            $cdnurl = HRM_CONFIG["cdn_domain"] . $cdnpath;
+
+
+                            ?><input style="padding: 0 10px" type="text" value="<?= $cdnpath ?>"> <a href="javascript: navigator.clipboard.writeText('<?= $cdnpath ?>')">copy</a> &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="<?= $cdnurl ?>">test</a>
+
+                            <?php
+                        }
+                    ?></td>
 
                     <? /* ------------------------ */ ?>
 
@@ -4176,9 +4205,22 @@ function lng($txt) {
 
 function pathToCDN($filepath) {
 
+    $filepath = str_replace(FM_ROOT_PATH, "", $filepath);
 
-
+    return $filepath;
 }
 
+function isInsideContentFolder($path) {
+
+    $contains = false;
+
+    foreach(HRM_CONFIG["content_paths"] as $p) {
+        if(strpos($path, $p) !== false) {
+            $contains = true;
+        }
+    }
+
+    return $contains;
+}
 
 ?>

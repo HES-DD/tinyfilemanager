@@ -2,23 +2,7 @@
 //Default Configuration
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":true,"calc_folder":false,"theme":"light"}';
 
-/* ----------------------------------------------- */
 
-const HRM_CONFIG = [
-    "cdn_domain" => "http://n.hirmercdn.de",
-
-    "content_paths" => [
-        "/var/projects/tinyfilemanager/test/hgg/content",
-        "/var/projects/tinyfilemanager/test/hrm/content",
-        "/var/projects/tinyfilemanager/test/eck/content"
-    ],
-
-    "forbidden_to_modify" => [
-// todo!!
-    ]
-];
-
-/* ----------------------------------------------- */
 
 /**
  * H3K | Tiny File Manager V2.4.7
@@ -435,6 +419,36 @@ defined('FM_HIGHLIGHTJS_STYLE') || define('FM_HIGHLIGHTJS_STYLE', $highlightjs_s
 defined('FM_DATETIME_FORMAT') || define('FM_DATETIME_FORMAT', $datetime_format);
 
 unset($p, $use_auth, $iconv_input_encoding, $use_highlightjs, $highlightjs_style);
+
+
+
+
+
+
+
+/* ----------------------------------------------- fjw */
+
+const HRM_CONFIG = [
+    "cdn_domain" => "http://n.hirmercdn.de",
+
+    "content_paths" => [
+        FM_ROOT_PATH . "/hgg/content",
+        FM_ROOT_PATH . "/hrm/content",
+        FM_ROOT_PATH . "/eck/content"
+    ],
+
+    "forbidden_to_modify" => [
+// todo!!
+    ]
+];
+
+/* ----------------------------------------------- */
+
+
+
+
+
+
 
 /*************************** ACTIONS ***************************/
 

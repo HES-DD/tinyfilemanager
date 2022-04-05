@@ -1,7 +1,7 @@
 <?php
 
 const HRM_CONFIG = [ // für den CDN-Test-Link
-    "cdn_domain" => "http://n.hirmercdn.de",
+    "cdn_domain" => "https://n.hirmercdn.de",
 
     "content_paths" => [ // Dateien innerhalb dieser Ordner haben den Copy/Paste-Link zum CDN
         FM_ROOT_PATH . "/hgg/content",

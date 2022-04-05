@@ -15,6 +15,10 @@ const HRM_CONFIG = [ // für den CDN-Test-Link
         "/eck",
         "/hgg/content",
         "/hgg/products",
+        "/hrm/content",
+        "/hrm/products",
+        "/eck/content",
+        "/eck/products"
 
     ]
 ];

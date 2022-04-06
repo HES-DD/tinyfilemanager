@@ -2155,7 +2155,7 @@ $showCDN = isInsideContentFolder($path);
                             $cdnurl = HRM_CONFIG["cdn_domain"] . $cdnpath;
 
 
-                            ?><input style="padding: 0 10px" type="text" value="<?= $cdnpath ?>"> <a href="javascript: navigator.clipboard.writeText('<?= $cdnpath ?>')">copy</a> &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
+                            ?><input style="padding: 0 10px" type="text" value="<?= $cdnpath ?>" readonly> <a href="javascript: navigator.clipboard.writeText('<?= $cdnpath ?>')">copy</a> &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="<?= $cdnurl ?>">test</a>
 
                             <?php

@@ -2156,7 +2156,7 @@ $showCDN = isInsideContentFolder($path);
 
 
                             ?><input style="padding: 0 10px" type="text" value="<?= $cdnpath ?>" readonly> <a href="javascript: navigator.clipboard.writeText('<?= $cdnpath ?>')">copy</a> &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="<?= $cdnurl ?>">test</a>
+                            <a href="<?= $cdnurl ?>" target="_blank">test</a>
 
                             <?php
                         }

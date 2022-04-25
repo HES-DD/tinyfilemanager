@@ -19,6 +19,8 @@ const HRM_CONFIG = [ // für den CDN-Test-Link
         "/hrm/products",
         "/eck/content",
         "/eck/products"
-
     ]
 ];
+
+
+//TODO: alphanumerisch klein keine Sonderzeichen aussser _-

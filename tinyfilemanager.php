@@ -112,7 +112,7 @@ $sticky_navbar = true;
 // Maximum file upload size
 // Increase the following values in php.ini to work properly
 // memory_limit, upload_max_filesize, post_max_size
-$max_upload_size_bytes = 5000;
+$max_upload_size_bytes = 104857600;
 
 // Possible rules are 'OFF', 'AND' or 'OR'
 // OFF => Don't check connection IP, defaults to OFF
@@ -4056,6 +4056,22 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
             $(".fm-upload-wrapper .card-tabs-container").addClass('hidden');$(target).removeClass('hidden');
         });
     });
+
+
+    // ---------- fjw
+    function copyToClipboard(text) {
+
+        if(navigator.clipboard) {
+            navigator.clipboard.writeText(text);
+        } else {
+
+
+
+        }
+
+    }
+
+
 </script>
 <?php if (isset($_GET['edit']) && isset($_GET['env']) && FM_EDIT_FILE):
         $ext = "javascript";

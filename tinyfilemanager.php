@@ -882,7 +882,7 @@ if (isset($_GET['dl'])) {
 
 // Upload
 if (!empty($_FILES) && !FM_READONLY) {
-    $override_file_name = false;
+    $override_file_name = true;
     $chunkIndex = $_POST['dzchunkindex'];
     $chunkTotal = $_POST['dztotalchunkcount'];
 
